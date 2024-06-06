@@ -1,0 +1,112 @@
+
+body {
+    width: 100%;
+    align-items : center;
+    height: 100%;
+     
+
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+
+    /* Background image is fixed in the viewport so that it doesn't move when 
+    the content's height is greater than the image's height */
+    background-attachment: fixed;
+
+    /* This is what makes the background image rescale based
+    on the container's size */
+    background-size: cover;
+
+    /* Set a background color that will be displayed
+    while the background image is loading */
+    background-color: green;
+    overflow: hidden;
+
+    /* Location of the image */
+    background-image:url('/images/bg2.jpg') ;
+}  
+
+ * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    /* background-image: url('frontend\bg2.jpg'); */
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+
+.form-box {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); /* Add support for Safari */
+}
+
+.form-box {
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background: transparent; */
+    backdrop-filter: blur(20px);
+    padding: 50px 60px 70px;
+    text-align: center;
+    border: 2px solid silver;
+    border-radius: 20px;
+    box-shadow: 0 0 30px black;
+}
+
+.form-box h1 {
+    font-size: 30px;
+    margin-bottom: 50px;
+    color: #111013;
+    position: relative;
+}
+
+.input-field {
+    border-bottom: 2px solid black;
+    /* border: 2px solid black; */
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    max-height: 65px;
+    transition: max-height 0.5s;
+    overflow: hidden;
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+}
+
+.input-field i {
+    margin-left: 15px;
+    color: black;
+}
+
+.btn-field{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+p{
+    margin-top: 15px;
+}
+
