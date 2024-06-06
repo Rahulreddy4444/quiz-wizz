@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
+const dotenv = require('dotenv');
 
-mongoose.connect("mongodb://localhost:27017/quiz_app")
-    .then(() => {
-        console.log("DB connected successfully");
-    })
-    .catch(() => {
-        console.log("DB connection failed");
-    });
+dotenv.config();
+
+mongoose.connect(process.env.DB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+    .then(() => console.log('DB connected successfully'))
+    .catch(err => console.error('DB connection failed', err));
 
 module.exports = mongoose;

@@ -2,25 +2,7 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user.model');
 
 exports.signup = async (req, res) => {
-    // const { name, email, password, userType } = req.body;
-
-    // try {
-    //     const existingUser = await User.findOne({ email });
-
-    //     if (existingUser) {
-    //         return res.send("User already exists. Please choose a different email.");
-    //     }
-
-    //     const hashedPassword = await bcrypt.hash(password, 10);
-    //     const newUser = new User({ name, email, password: hashedPassword, userType });
-
-    //     await newUser.save();
-    //     res.render("login");
-    // } catch (error) {
-    //     res.status(500).send("Error during signup");
-    // }
-
-
+   
     const data = {
          name : req.body.name,
          email : req.body.email,
@@ -49,27 +31,7 @@ exports.signup = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
-    // const { password } = req.body;
-
-    // try {
-    //     const user = await User.findOne({  });
-
-    //     if (!user) {
-    //         return res.send("User not found");
-    //     }
-
-    //     const isMatch = await bcrypt.compare(password, user.password);
-
-    //     if (isMatch) {
-    //         req.session.user = user;
-    //         res.redirect("/dashboard");
-    //     } else {
-    //         res.send("Wrong password");
-    //     }
-    // } catch (error) {
-    //     res.status(500).send("Error during login");
-    // }
-
+    
     const { name, password } = req.body;
 
     const user = await User.findOne({ name });
