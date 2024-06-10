@@ -17,7 +17,7 @@ exports.signup = async (req, res) => {
                 res.send("user is already exists. please choose a differnt name.");
             }
             else{
-                //send the data into DB
+              //send the data into DB
               //hash the password
               const saltrounds = 10;
               const hashpassword = await bcrypt.hash(data.password, saltrounds);

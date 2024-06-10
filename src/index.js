@@ -2,9 +2,11 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const { ensureAuthenticated } = require('./middlewares/auth.middleware');
 const authRoutes = require('./routes/auth.routes');
+const quizRoutes = require('./routes/quiz.routes');
 const db = require('./config/db.config'); // Ensure DB is connected
 
 dotenv.config();
@@ -12,7 +14,6 @@ const { secret } = require('./config/auth.config');
 
 const app = express();
 
-// const { secret } = require('./config/auth.config');
 
 app.use(session({
     secret,
@@ -20,11 +21,11 @@ app.use(session({
     saveUninitialized: true
 }));
 
+app.use(bodyParser.json());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
-// app.set('views', path.join(__dirname, 'views'));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
@@ -44,8 +45,14 @@ app.get("/dashboard", ensureAuthenticated, (req, res) => {
 });
 
 app.use(authRoutes);
+app.use('/quiz', quizRoutes);
 
-const port = 5000;
+// app.use((err, req, res, next) => {
+//     console.error(err.stack);
+//     res.status(500).json({ success: false, message: 'Something broke!', error: err.message });
+// });
+
+const port = process.env.PORT
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
 });
