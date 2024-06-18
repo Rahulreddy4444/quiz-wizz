@@ -48,13 +48,21 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <label>Option 3: <input type="text" class="form-control" name="questions[${index}][options][]" required></label>
                                 <label>Option 4: <input type="text" class="form-control" name="questions[${index}][options][]" required></label>
                             </div>
-                            <label>Correct Option: 
-                                <select class="form-select" name="questions[${index}][correctOption]" required>
-                                    <option value="0">Option 1</option>
-                                    <option value="1">Option 2</option>
-                                    <option value="2">Option 3</option>
-                                    <option value="3">Option 4</option>
-                                </select>
+                            <label>Correct Options: 
+                                <div>
+                                    <label class="form-check-label me-2">Option 1
+                                        <input type="checkbox" class="form-check-input" name="questions[${index}][correctOptions][]" value="0">
+                                    </label>
+                                    <label class="form-check-label me-2">Option 2
+                                        <input type="checkbox" class="form-check-input" name="questions[${index}][correctOptions][]" value="1">
+                                    </label>
+                                    <label class="form-check-label me-2">Option 3
+                                        <input type="checkbox" class="form-check-input" name="questions[${index}][correctOptions][]" value="2">
+                                    </label>
+                                    <label class="form-check-label me-2">Option 4
+                                        <input type="checkbox" class="form-check-input" name="questions[${index}][correctOptions][]" value="3">
+                                    </label>
+                                </div>
                             </label>
                         </div>
                     `;
@@ -90,13 +98,22 @@ document.addEventListener("DOMContentLoaded", function() {
     quizForm.addEventListener("submit", function(event) {
         event.preventDefault();
         const formData = new FormData(quizForm);
-        const json = {};
+        const json = { questions: [] };
+
         formData.forEach((value, key) => {
             if (key.includes('[') && key.includes(']')) {
                 const keys = key.split(/\[|\]/).filter(k => k);
                 if (!json[keys[0]]) json[keys[0]] = [];
                 if (!json[keys[0]][keys[1]]) json[keys[0]][keys[1]] = {};
-                json[keys[0]][keys[1]][keys[2]] = value;
+
+                if (keys[2] === 'options' || keys[2] === 'correctOptions') {
+                    if (!json[keys[0]][keys[1]][keys[2]]) {
+                        json[keys[0]][keys[1]][keys[2]] = [];
+                    }
+                    json[keys[0]][keys[1]][keys[2]].push(value);
+                } else {
+                    json[keys[0]][keys[1]][keys[2]] = value;
+                }
             } else {
                 json[key] = value;
             }
