@@ -45,9 +45,7 @@ exports.login = async (req, res) => {
     
     req.session.userName = user.name;
     req.session.userType = user.UserType;
-    res.render('dashboard', {user});
-
-
+    res.render("dashboard", {user});
 };
 
 exports.logout = (req, res) => {

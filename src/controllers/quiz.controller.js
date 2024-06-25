@@ -15,6 +15,7 @@ exports.createQuiz = async (req, res) => {
         if (question.type === 'multiple-choice') {
             questionData.options = question.options;
             questionData.correctOption = question.correctOption;
+            // questionData.correctOptions = question.correctOptions;
         } else {
             questionData.answer = question.answer;
         }
