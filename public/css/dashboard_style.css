@@ -170,3 +170,56 @@ body {
     background-color: rgb(229, 236, 236) !important;
 }
 /* end main-box */
+
+/* User Page */
+/* " margin-left: 260px; margin-top: 200px; margin-bottom: 200px; margin-right: 200px; background-color: whitesmoke; opacity: 0.83; " */
+.main-box .apply_box {
+    max-width: 600px;
+    padding: 20px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 200px;
+    box-shadow: 4px 3px 5px rgba(1, 1, 1, 0.1);
+    border-radius: 10px;
+}
+
+.apply_box h1 {
+    text-align: center;
+    margin-top: 10px;
+}
+.form_control{
+    text-align: center;
+    margin-top: 35px;
+}
+label{
+    font-size: 20px;
+    margin-right: 5px;
+}
+input {
+    padding: 5px 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 30px;
+}
+
+.btn_container {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+button {
+    background-color: rgb(87, 79, 68);
+    border: transparent solid 2px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: white;
+    /* width: 25%; */
+    transition: 0.3s ease-in;
+}
+button:hover {
+    background-color: #ccc;
+    border: 2px solid rgb(51, 49, 49);
+    color: black;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}

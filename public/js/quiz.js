@@ -49,12 +49,20 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <label>Option 4: <input type="text" class="form-control" name="questions[${index}][options][]" required></label>
                             </div>
                             <label>Correct Option: 
-                                <select class="form-select" name="questions[${index}][correctOption]" required>
-                                    <option value="0">Option 1</option>
-                                    <option value="1">Option 2</option>
-                                    <option value="2">Option 3</option>
-                                    <option value="3">Option 4</option>
-                                </select>
+                                <div>
+                                    <label class="form-check-label me-2">Option 1
+                                        <input type="radio" class="form-check-input" name="questions[${index}][correctOption][]" value="0">
+                                    </label>
+                                    <label class="form-check-label me-2">Option 2
+                                        <input type="radio" class="form-check-input" name="questions[${index}][correctOption][]" value="1">
+                                    </label>
+                                    <label class="form-check-label me-2">Option 3
+                                        <input type="radio" class="form-check-input" name="questions[${index}][correctOption][]" value="2">
+                                    </label>
+                                    <label class="form-check-label me-2">Option 4
+                                        <input type="radio" class="form-check-input" name="questions[${index}][correctOption][]" value="3">
+                                    </label>
+                                </div>
                             </label>
                         </div>
                     `;
@@ -90,13 +98,24 @@ document.addEventListener("DOMContentLoaded", function() {
     quizForm.addEventListener("submit", function(event) {
         event.preventDefault();
         const formData = new FormData(quizForm);
-        const json = {};
+        const json = { questions: [] };
+
         formData.forEach((value, key) => {
             if (key.includes('[') && key.includes(']')) {
                 const keys = key.split(/\[|\]/).filter(k => k);
                 if (!json[keys[0]]) json[keys[0]] = [];
                 if (!json[keys[0]][keys[1]]) json[keys[0]][keys[1]] = {};
-                json[keys[0]][keys[1]][keys[2]] = value;
+
+                if (keys[2] === 'options') {
+                    if (!json[keys[0]][keys[1]].options) {
+                        json[keys[0]][keys[1]].options = [];
+                    }
+                    json[keys[0]][keys[1]].options.push(value);
+                } else if (keys[2] === 'correctOption') { // Change 'correctOptions' to 'correctOption'
+                    json[keys[0]][keys[1]].correctOption = Number(value); // Store correctOption instead of correctOptions
+                } else {
+                    json[keys[0]][keys[1]][keys[2]] = value;
+                }
             } else {
                 json[key] = value;
             }
@@ -132,3 +151,27 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+
+document.getElementById('quiz-form').addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const quizName = document.getElementById('quizName').value;
+    window.location.href = `/take-quiz/${quizName}`;
+    // const response = await fetch(`/quiz/${quizName}`);
+    // if (response.ok) {
+    //     const quiz = await response.json();
+    //     alert(console.log(quiz));
+    // } else {
+    //     document.getElementById('quizContainer').innerHTML = 'Quiz not found';
+    // }
+});
+
+
+// document.getElementById('quiz-form').addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   const quizName = document.getElementById('quizName').value;
+//   const response = await fetch(`/quiz?name=${quizName}`);
+//   const data = await response.json();
+//   alert(console.log(data));
+// });
