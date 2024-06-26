@@ -14,8 +14,12 @@ exports.createQuiz = async (req, res) => {
 
         if (question.type === 'multiple-choice') {
             questionData.options = question.options;
+<<<<<<< HEAD
             questionData.correctOption = question.correctOption;
             // questionData.correctOptions = question.correctOptions;
+=======
+            questionData.correctOptions = question.correctOptions;
+>>>>>>> 8a64569ee70daffff6396d4041d13136cab3c66c
         } else {
             questionData.answer = question.answer;
         }
