@@ -3,7 +3,7 @@ const Quiz = require('../models/quiz.model');
 
 exports.createQuiz = async (req, res) => {
     const { name, duration, questions } = req.body;
-    console.log('Request body:', req.body);
+    // console.log('Request body:', req.body);
 
     const questionsArray = questions.map((question) => {
         let questionData = {

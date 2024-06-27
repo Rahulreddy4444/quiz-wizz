@@ -28,7 +28,7 @@ body {
     background-image:url('/images/bg2.jpg') ;
 }  
 
- * {
+* {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
@@ -108,5 +108,9 @@ input {
 
 p{
     margin-top: 15px;
+    color: rgb(178, 170, 170);
 }
 
+#signup{
+    color: aliceblue;
+}

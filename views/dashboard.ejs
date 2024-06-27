@@ -25,7 +25,7 @@
       <li><span class="material-symbols-outlined">dashboard</span><a href="#">Dashboard</a></li>
       <li><span class="material-symbols-outlined">flag</span><a href="#">Reports</a></li>
       <hr>
-      <% if (user.UserType==='Admin' ) { %>
+      <% if (user.UserType==='Admin' || user.UserType==='admin') { %>
         <h4>Admin</h4>
         <li><span class="material-symbols-outlined">person</span><a href="#" id="build-test-button">Build a test</a>
         </li>
@@ -33,7 +33,7 @@
         <li><span class="material-symbols-outlined">ambient_screen</span><a href="#">Analysis</a></li>
         <hr>
         <% } %>
-          <% if (user.UserType==='User' ) { %>
+          <% if (user.UserType==='User' || user.UserType==='user' ) { %>
             <h4>User</h4>
             <li><span class="material-symbols-outlined">bar_chart</span><a href="#" id="take-test-button">Take a test</a></li>
             <li><span class="material-symbols-outlined">mail</span><a href="#">View result</a></li>
@@ -44,7 +44,7 @@
   </aside>
 
   
-  <% if (user.UserType === 'admin') { %>
+  <% if (user.UserType === 'Admin' || user.UserType==='admin') { %>
     <div class="container-fluid main-box p-4">
       <div class="row">
         <div class="col-md-2"></div>
@@ -120,13 +120,8 @@
     </div>  
   <% } %>
 
-  <% if (user.UserType === 'user') { %>
-    <div class="container-fluid main-box p-4" style=" margin-left: 260px; margin-top: 200px; margin-bottom: 200px; margin-right: 200px; background-color: whitesmoke; opacity: 0.83; " >
-       <h1>hello user</h1>
-    </div>
-  <% } %>
 
-      <% if (user.UserType==='User' ) { %>
+      <% if (user.UserType==='User' || user.UserType==='user') { %>
         <!-- <div class="container-fluid main-box p-4" id="start-quiz-section" style="display: none;"> -->
           <div class="container-fluid main-box p-4">
           <div class="apply_box">
