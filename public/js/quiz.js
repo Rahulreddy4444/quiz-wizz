@@ -48,21 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
                                 <label>Option 3: <input type="text" class="form-control" name="questions[${index}][options][]" required></label>
                                 <label>Option 4: <input type="text" class="form-control" name="questions[${index}][options][]" required></label>
                             </div>
-<<<<<<< HEAD
-                            <label>Correct Option: 
-                                <div>
-                                    <label class="form-check-label me-2">Option 1
-                                        <input type="radio" class="form-check-input" name="questions[${index}][correctOption][]" value="0">
-                                    </label>
-                                    <label class="form-check-label me-2">Option 2
-                                        <input type="radio" class="form-check-input" name="questions[${index}][correctOption][]" value="1">
-                                    </label>
-                                    <label class="form-check-label me-2">Option 3
-                                        <input type="radio" class="form-check-input" name="questions[${index}][correctOption][]" value="2">
-                                    </label>
-                                    <label class="form-check-label me-2">Option 4
-                                        <input type="radio" class="form-check-input" name="questions[${index}][correctOption][]" value="3">
-=======
                             <label>Correct Options: 
                                 <div>
                                     <label class="form-check-label me-2">Option 1
@@ -76,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function() {
                                     </label>
                                     <label class="form-check-label me-2">Option 4
                                         <input type="checkbox" class="form-check-input" name="questions[${index}][correctOptions][]" value="3">
->>>>>>> 8a64569ee70daffff6396d4041d13136cab3c66c
                                     </label>
                                 </div>
                             </label>
@@ -122,21 +106,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (!json[keys[0]]) json[keys[0]] = [];
                 if (!json[keys[0]][keys[1]]) json[keys[0]][keys[1]] = {};
 
-<<<<<<< HEAD
-                if (keys[2] === 'options') {
-                    if (!json[keys[0]][keys[1]].options) {
-                        json[keys[0]][keys[1]].options = [];
-                    }
-                    json[keys[0]][keys[1]].options.push(value);
-                } else if (keys[2] === 'correctOption') { // Change 'correctOptions' to 'correctOption'
-                    json[keys[0]][keys[1]].correctOption = Number(value); // Store correctOption instead of correctOptions
-=======
                 if (keys[2] === 'options' || keys[2] === 'correctOptions') {
                     if (!json[keys[0]][keys[1]][keys[2]]) {
                         json[keys[0]][keys[1]][keys[2]] = [];
                     }
                     json[keys[0]][keys[1]][keys[2]].push(value);
->>>>>>> 8a64569ee70daffff6396d4041d13136cab3c66c
                 } else {
                     json[keys[0]][keys[1]][keys[2]] = value;
                 }
