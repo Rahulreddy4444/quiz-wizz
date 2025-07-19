@@ -22,6 +22,18 @@ This inspired the development of **Quiz-Wizz** – a web-based platform that all
 
 ---
 
+### 🌍 Live Site
+```bash
+Link: https://quiz-wizz.onrender.com
+```
+
+---
+
+#### Demo Video
+```bash
+link: https://drive.google.com/file/d/1_FqbI6LnOTfLMIL7HIKhG-CME4vka3up/view
+```
+
 ## ⚙️ Tech Stack
 
 | Layer       | Technologies Used                         |
@@ -136,8 +148,3 @@ App will run on: http://localhost:5000
 
 ```
 ---
-
-#### Demo Video
-```bash
-link: https://drive.google.com/file/d/1_FqbI6LnOTfLMIL7HIKhG-CME4vka3up/view
-```
