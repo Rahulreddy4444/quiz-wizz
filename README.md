@@ -36,7 +36,7 @@ This inspired the development of **Quiz-Wizz** – a web-based platform that all
 ---
 
 ## 📁 Project Structure
-
+```bash
 quiz-wizz/
 ├── node_modules/
 ├── public/ # Static assets (CSS, JS, Images)
@@ -61,7 +61,7 @@ quiz-wizz/
 ├── package.json
 ├── package-lock.json
 └── README.md
-
+```
 ---
 
 ## 🚀 Getting Started
