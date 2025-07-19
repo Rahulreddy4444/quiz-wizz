@@ -94,10 +94,9 @@ App will run on: http://localhost:5000
 
 ---
 
+
+### 🔐 Authentication Flow
 ```bash
-
-🔐 Authentication Flow
-
 - User signs up → password is hashed with bcrypt
 - Session is stored using express-session and connect-mongo
 - Protected routes are guarded using custom middleware
@@ -117,9 +116,10 @@ App will run on: http://localhost:5000
 
 ```
 
-```bash
+---
 
-📦 Dependencies
+### 📦 Dependencies
+```bash
 {
   "bcrypt": "^5.1.1",
   "body-parser": "^1.20.2",
@@ -134,4 +134,10 @@ App will run on: http://localhost:5000
   "node": "^20.14.0"
 }
 
+```
+---
+
+#### Demo Video
+```bash
+link: https://drive.google.com/file/d/1_FqbI6LnOTfLMIL7HIKhG-CME4vka3up/view
 ```
